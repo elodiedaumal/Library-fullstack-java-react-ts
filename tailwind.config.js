@@ -6,6 +6,7 @@ module.exports = {
          backgroundImage: {
             "review-left": "url('./Images/PublicImages/image-4.jpg')",
             "review-right": "url('./Images/PublicImages/image-1.jpg')",
+            lost: "url('./Images/PublicImages/image-3.jpg')",
          },
       },
    },
