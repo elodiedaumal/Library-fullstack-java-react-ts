@@ -1,6 +1,13 @@
 import { IoMenu } from "react-icons/io5";
+import { NavbarLinks } from "../utils";
 
-export const Navbar = () => {
+interface NavLink {
+   id: number;
+   name: string;
+   url: string;
+}
+
+const Navbar: React.FC = () => {
    return (
       <nav className='bg-sky-700 p-4'>
          <div className='flex items-center'>
@@ -11,18 +18,19 @@ export const Navbar = () => {
             >
                <IoMenu className='text-2xl' />
             </button>
+
             <div className='hidden md:flex md:items-center md:w-auto md:ml-auto'>
                <ul className='md:flex md:space-x-4'>
-                  <li>
-                     <a className='text-white hover:text-gray-300' href='#'>
-                        Home
-                     </a>
-                  </li>
-                  <li>
-                     <a className='text-white hover:text-gray-300' href='#'>
-                        Search Books
-                     </a>
-                  </li>
+                  {NavbarLinks.map((navlink: NavLink) => (
+                     <li className='' key={navlink.id}>
+                        <a
+                           href={navlink.url}
+                           className='text-white hover:text-gray-300'
+                        >
+                           {navlink.name}
+                        </a>
+                     </li>
+                  ))}
                </ul>
                <ul className='md:flex md:ml-10'>
                   <li>
@@ -40,3 +48,5 @@ export const Navbar = () => {
       </nav>
    );
 };
+
+export default Navbar;
