@@ -1,8 +1,12 @@
+import { Navbar } from "./layouts/Navbar";
+import HomePage from "./pages/HomePage";
+
 function App() {
    return (
-      <div>
-         <p className='text-5xl '>library</p>
-      </div>
+      <>
+         <Navbar />
+         <HomePage />
+      </>
    );
 }
 
