@@ -5,8 +5,8 @@ import Caroussel from "../components/Caroussel";
 const HomePage = () => {
    return (
       <>
-         <Caroussel />
          <ExploreTopBooks />
+         <Caroussel />
       </>
    );
 };
