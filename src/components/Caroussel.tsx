@@ -1,12 +1,11 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
+import CarouselItem from "./CarousselItems"; // Adjust the path based on your project structure
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
 import bookImage1 from "../Images/BooksImages/book-luv2code-1000.png";
 import bookImage2 from "../Images/BooksImages/new-book-1.png";
 import bookImage3 from "../Images/BooksImages/new-book-2.png";
 
-const Caroussel = () => {
+const Carousel = () => {
    const [currentIndex, setCurrentIndex] = useState(0);
 
    const items = [
@@ -39,6 +38,7 @@ const Caroussel = () => {
          (prevIndex) => (prevIndex - 1 + items.length) % items.length
       );
    };
+
    return (
       <div className='mt-5'>
          <h3 className='text-center font-bold text-xl'>
@@ -52,26 +52,15 @@ const Caroussel = () => {
                </button>
 
                <div>
-                  {items.map((item, index) => (
-                     <div
+                  {items.map((item) => (
+                     <CarouselItem
                         key={item.id}
-                        className={`mx-auto flex flex-col justify-center items-center gap-2  ${
-                           index === currentIndex ? "" : "hidden"
-                        }`}
-                     >
-                        <img
-                           className='max-w-[200px]'
-                           src={item.image}
-                           alt={item.title}
-                        />
-                        <h3 className='text-2xl font-bold'>{item.title}</h3>
-                        <p className=''>{item.author}</p>
-                        <button className='bg-sky-700 rounded-sm text-white py-2 px-4 border-2 hover:bg-white hover:text-sky-700 border-sky-700'>
-                           <a href='#'>Review</a>
-                        </button>
-                     </div>
+                        item={item}
+                        currentIndex={currentIndex}
+                     />
                   ))}
                </div>
+
                <button className='text-gray-800 text-2xl' onClick={handleNext}>
                   <FaChevronRight />
                </button>
@@ -89,4 +78,4 @@ const Caroussel = () => {
    );
 };
 
-export default Caroussel;
+export default Carousel;
